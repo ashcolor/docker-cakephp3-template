@@ -4,21 +4,29 @@ By using Docker-Compose, you can build CakePHP3 environment easily.
 
 # Environment
 
-* Docker 18.06.1-ce
-* Docker Compose 1.22.0
-* Docker Machine 0.15.0
+- Docker 18.06.1-ce
+- Docker Compose 1.22.0
+- Docker Machine 0.15.0
 
-## Initialization (Build CakePHP3 Project)
-Since CakePHP3 has an execution environment for each project, so create a project. To create another project, follow the same procedure.
+## Initialization (Build CakePHP4 Project)
+
+Since CakePHP4 has an execution environment for each project, so create a project. To create another project, follow the same procedure.
+
+### Rewrite project name
+
+```docker-compose.yml
+      PRJ: "sample"
+```
 
 ### Create Docker Images
+
 It will take about two or three minutes.
 
 ```
 $ docker-compose build
 ```
 
-### Run Containers 
+### Run Containers
 
 ```
 $ docker-compose up -d
@@ -30,7 +38,6 @@ $ docker-compose up -d
 $ docker exec -it docker-cakephp3-template_phpfpm_1 /bin/sh
 ```
 
-
 ### Get Composer Installer
 
 ```
@@ -38,6 +45,7 @@ $ docker exec -it docker-cakephp3-template_phpfpm_1 /bin/sh
 ```
 
 ### Make Project
+
 Here, create a `sample` project
 
 ```
@@ -132,6 +140,7 @@ Updated Security.salt value in config/app.php
 ```
 
 ### Fix Configuration
+
 Update `data/htdocs/sample/config/app.php` at line 251
 
 ```data/htdocs/sample/config/app.php
@@ -152,7 +161,5 @@ You can check at http://localhost:8765
 ## Remove Containers
 
 ```
-$ docker-compose down 
+$ docker-compose down
 ```
-
-
